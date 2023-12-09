@@ -57,7 +57,7 @@ function App() {
 
   return (
     <div className="container mt-5">
-      <h1 className="mb-4">GeolocationCa App</h1>
+      <h1 className="mb-4">GeolocatorCa App</h1>
       <Map setNewLocation={setNewLocation} newLocation={newLocation} geolocations={geolocations} onDeleteLocation={handleDeleteLocation} />
       <div className="mt-4">
         <h2>Add Location</h2>
