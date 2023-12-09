@@ -14,6 +14,8 @@ GeolocatorCa is a responsive web application that allows users to save and delet
 3. **Delete Marker:**
    - Users can delete each of the previously added locations by clicking on the corresponding marker on the map. A popup will appear with the option to delete the location.
 
+Note: The valid coordinates are; latitude, min: -90, max: 90 and longitude, min: -180, max: 180.
+
 
 ## Technologies Used
 - React for the frontend.

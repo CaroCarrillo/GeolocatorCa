@@ -1,4 +1,3 @@
-// Map.js
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import LocationMarker from './LocationMarker';
@@ -8,13 +7,11 @@ import 'leaflet/dist/leaflet.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Map = ({ newLocation, geolocations, onDeleteLocation, setNewLocation}) => {
-
-  
   return (
     <MapContainer
       center={[0, 0]}
-      zoom={1.9}
-      style={{ height: '500px', width: '100%' }}
+      zoom={1}
+      style={{ height: '20rem', width: '100%' }}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

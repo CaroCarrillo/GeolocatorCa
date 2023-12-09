@@ -11,8 +11,10 @@ function LocationMarker({setNewLocation, newLocation}) {
       }
     })
     return newLocation === null ? null : (
-      <Marker position={[newLocation.latitude, newLocation.longitude]} icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
-        <Popup>You are here</Popup>
+      <Marker position={[(newLocation.latitude >= -90  && newLocation.latitude <= 90 ) ? newLocation.latitude : 0 , 
+                        (newLocation.longitude >= -180  && newLocation.longitude <= 180 ) ? newLocation.longitude : 0 ]}
+                         icon={new Icon({iconUrl: markerIconPng, iconSize: [25, 41], iconAnchor: [12, 41]})}>
+        <Popup>Selected location</Popup>
       </Marker>
     )
   }
