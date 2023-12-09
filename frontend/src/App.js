@@ -24,7 +24,7 @@ function App() {
 
   const handleAddLocation = async () => {
     try {
-      await axios.post('http://localhost:5000/api/geolocations/AddGeolocations', newLocation);
+      await axios.post('http://localhost:5001/api/geolocations/AddGeolocations', newLocation);
       setNewLocation({ latitude: 0, longitude: 0 });
       fetchGeolocations();
     } catch (error) {
@@ -35,7 +35,7 @@ function App() {
 
   const handleDeleteLocation = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/geolocations/DeleteGeolocations/${id}`);
+      await axios.delete(`http://localhost:5001/api/geolocations/DeleteGeolocations/${id}`);
       fetchGeolocations();
     } catch (error) {
       console.error('Error deleting geolocation:', error);
@@ -44,7 +44,7 @@ function App() {
 
   const fetchGeolocations = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/geolocations/GetGeolocations');
+      const response = await axios.get('http://localhost:5001/api/geolocations/GetGeolocations');
       setGeolocations(response.data);
     } catch (error) {
       console.error('Error fetching geolocations:', error);
