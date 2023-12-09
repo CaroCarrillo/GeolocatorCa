@@ -11,8 +11,6 @@ app.use(cors());
 app.use(bodyParser.json());
 
 mongoose.connect('mongodb://localhost:27017/Challenge', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
 });
 
 app.use('/api', routes);

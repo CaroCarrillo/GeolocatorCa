@@ -1,12 +1,24 @@
 const Geolocation = require('../models/geolocation');
+const validator = require('validator');
+
 
 const addGeolocations = async (req, res) => {
   try {
     const { latitude, longitude } = req.body;
+    
+    // Validate that the coordinates are in an acceptable range
+    const isValidLatitude = validator.isFloat(latitude.toString(), { min: -90, max: 90 });
+    const isValidLongitude = validator.isFloat(longitude.toString(), { min: -180, max: 180 });
+
+    if (!isValidLatitude || !isValidLongitude) {
+      return res.status(400).json({ error: 'Invalid coordinates' });
+    }
+  
     const newGeolocation = new Geolocation({ latitude, longitude });
     await newGeolocation.save();
     res.json({ message: 'Geolocation data successfully received' });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ error: 'Error processing request' });
   }
 };
